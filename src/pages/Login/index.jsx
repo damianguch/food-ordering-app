@@ -25,19 +25,41 @@ const Login = () => {
           'Auth token',
           userCredential._tokenResponse.refreshToken
         );
-        window.dispatchEvent(new Event('storage'));
-        setLoading(false);
-        toast.success('Successful Login!🎉', {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: 'dark'
-        });
-        navigate('/');
+
+        fetch('https://food-ordering-b921316c67e7.herokuapp.com/api/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email: data.email
+          })
+        })
+          .then((res) => {
+            if (res.status === 200) {
+              toast.success('Login successfully!🎉', {
+                position: 'top-right',
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'dark'
+              });
+              setLoading(false);
+              navigate('/');
+              return res.json();
+            }
+          })
+          .then((data) => {
+            console.log(data.data);
+            dispatch(setUser(data.data));
+          })
+          .catch((error) => {
+            setLoading(false);
+            console.log(error);
+          });
       })
       .catch((error) => {
         if (error.code === 'auth/invalid-login-credentials') {
