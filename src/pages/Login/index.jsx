@@ -28,6 +28,7 @@ const Login = () => {
           'Auth token',
           userCredential._tokenResponse.refreshToken
         );
+        window.dispatchEvent(new Event('storage'));
         setLoading(false);
 
         fetch('https://food-ordering-b921316c67e7.herokuapp.com/api/login', {
