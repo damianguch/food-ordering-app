@@ -11,12 +11,12 @@ import { resetUser } from '../stores/userInfo/userSlice';
 export const Header = ({ cartCount }) => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggeIn] = useState(false);
-  dispatch(resetUser());
   const dispatch = useDispatch();
 
   const handleLogout = () => {
     sessionStorage.removeItem('Auth token');
     sessionStorage.removeItem('User Id');
+    dispatch(resetUser());
     window.dispatchEvent(new Event('storage'));
     navigate('/');
   };
