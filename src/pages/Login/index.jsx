@@ -6,11 +6,14 @@ import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { auth } from '../../firebase-config';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../stores/userInfo/userSlice';
 
 const Login = () => {
   let navigate = useNavigate();
   const { register, handleSubmit } = useForm();
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const onSubmit = (data) => {
     setLoading(true);

@@ -13,7 +13,6 @@ const Register = () => {
   let navigate = useNavigate();
   const { register, handleSubmit } = useForm();
   const [loading, setLoading] = useState(false);
-
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
