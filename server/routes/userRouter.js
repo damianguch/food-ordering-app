@@ -31,7 +31,7 @@ router.post('/register', (req, res) => {
 router.post('/login', async (req, res) => {
   const { email } = req.body;
   try {
-    const user = await User.finfOne({ email });
+    const user = await User.findOne({ email });
     if (user) {
       const { _id, name, email, isAdmin } = user;
 

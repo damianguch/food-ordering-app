@@ -39,7 +39,6 @@ const Login = () => {
           })
         })
           .then((res) => {
-            console.log(res);
             if (res.status === 200) {
               toast.success('Login successfully!🎉', {
                 position: 'top-right',
