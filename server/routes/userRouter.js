@@ -34,6 +34,7 @@ router.post('/login', async (req, res) => {
     const user = await User.finfOne({ email });
     if (user) {
       const { _id, name, email, isAdmin } = user;
+
       res.json({
         data: {
           _id,
