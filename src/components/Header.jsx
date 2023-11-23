@@ -5,10 +5,14 @@ import { useEffect, useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import Button from './elements/Button';
+import { useDispatch } from 'react-redux';
+import { resetUser } from '../stores/userInfo/userSlice';
 
 export const Header = ({ cartCount }) => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggeIn] = useState(false);
+  dispatch(resetUser());
+  const dispatch = useDispatch();
 
   const handleLogout = () => {
     sessionStorage.removeItem('Auth token');
