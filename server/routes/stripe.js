@@ -211,17 +211,18 @@ router.post('/create-payment-intent', async (req, res) => {
       userId
     });
 
-    await order.save();
-
     const paymentIntent = await stripe.paymentIntents.create({
       amount: totalPrice,
       currency: 'usd',
       payment_method_types: [paymentMethodType]
     });
 
-    res.json({
-      clientSecret: paymentIntent.client_secret
-    });
+    if (paymentIntent) {
+      res.json({
+        clientSecret: paymentIntent.client_secret
+      });
+      await order.save();
+    }
   } catch (e) {
     console.error(e);
     res.status(400).json({
