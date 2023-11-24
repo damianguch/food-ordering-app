@@ -75,7 +75,6 @@ const PaymentForm = () => {
 
       if (backEndError || stripeError) {
         setError(backEndError || stripeError);
-        console.log(error);
       } else if (paymentIntent.status === 'succeeded') {
         dispatch(clearAddress());
         dispatch(clearCart());
