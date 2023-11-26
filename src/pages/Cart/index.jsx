@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 // import { PayButton } from '../../components/PayButton';
 import { StripeWrapper } from '../../components/PaymentForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 const Cart = () => {
   const cart = useSelector(cartProducts);
@@ -23,10 +22,7 @@ const Cart = () => {
         <h1>Your Cart is empty</h1>
         <Link to="/" className="font-medium">
           <span> Start Shopping</span>
-          <FontAwesomeIcon
-            icon="fa-solid fa-arrow-right"
-            className="text-black"
-          />
+          <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
         </Link>
       </div>
     );
