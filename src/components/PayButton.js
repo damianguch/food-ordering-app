@@ -1,10 +1,10 @@
 import axios from 'axios';
 import Button from './elements/Button';
 import { useSelector } from 'react-redux';
-import { selectUser } from '../stores/userInfo/userSlice';
+import { getUser } from '../stores/userInfo/userSlice';
 
 export const PayButton = ({ cartItems }) => {
-  const user = useSelector(selectUser);
+  const user = useSelector(getUser);
   const handleCheckout = () => {
     axios
       .post(
