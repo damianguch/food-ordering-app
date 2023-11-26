@@ -16,7 +16,7 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const cart = useSelector(cartProducts);
-  const isAuthenticated = useSelector((state) => state.use.isAuthenticated);
+  const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
 
   const onSubmit = (data) => {
     setLoading(true);
