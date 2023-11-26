@@ -22,7 +22,10 @@ const Cart = () => {
         <h1>Your Cart is empty</h1>
         <Link to="/" className="font-medium">
           <span> Start Shopping</span>
-          <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
+          <FontAwesomeIcon
+            icon="fa-solid fa-arrow-right"
+            className="text-black"
+          />
         </Link>
       </div>
     );
