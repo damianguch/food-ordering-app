@@ -21,8 +21,10 @@ const Cart = () => {
     return (
       <div className="bg-white h-full text-black text-xl flex flex-col items-center justify-start p-4">
         <h1>Your Cart is empty</h1>
-        <Link to="/" className="font-medium">
-          <span> Start Shopping</span>
+        <Link to="/menu" className="font-medium">
+          <span className="text-slate-500 hover:text-blue-600">
+            Start Shopping
+          </span>
           <FontAwesomeIcon icon={faArrowRight} />
         </Link>
       </div>
