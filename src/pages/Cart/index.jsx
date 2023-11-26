@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 // import { PayButton } from '../../components/PayButton';
 import { StripeWrapper } from '../../components/PaymentForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 const Cart = () => {
   const cart = useSelector(cartProducts);
