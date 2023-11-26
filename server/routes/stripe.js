@@ -4,7 +4,7 @@ const express = require('express');
 const Order = require('../models/orderModel');
 const router = express.Router();
 
-const baseUrl = 'http://localhost:3000';
+const baseUrl = 'https://food-ordering-b921316c67e7.herokuapp.com';
 
 router.post('/create-checkout-session', async (req, res) => {
   const customer = await stripe.customers.create({
