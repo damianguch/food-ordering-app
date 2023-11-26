@@ -13,7 +13,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const Cart = () => {
   const cart = useSelector(cartProducts);
-  const tabs = ['Summary', 'Delivery', 'Payment'];
+  const tabs = ['Summary', 'Payment'];
   const [currentTab, handleTabSwitch] = useTabSwitch(tabs, 'Summary');
 
   if (!cart || cart.length === 0) {
