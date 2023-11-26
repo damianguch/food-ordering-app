@@ -3,7 +3,7 @@ import { cartProducts } from '../../stores/cart/cartSlice';
 import useTabSwitch from '../../hooks/useTabSwitch';
 import { Tabs } from '../../components/Tabs';
 import Button from '../../components/elements/Button';
-import AddressForm from '../../components/AddressForm';
+//import AddressForm from '../../components/AddressForm';
 import { ProductsSummary } from '../../components/ProductsSummary';
 import { Link } from 'react-router-dom';
 import { PayButton } from '../../components/PayButton';
@@ -39,7 +39,7 @@ const Cart = () => {
           <Button
             variant="dark"
             className="flex items-center"
-            onClick={() => handleTabSwitch('Delivery')}
+            onClick={() => handleTabSwitch('Payment')}
           >
             <span className="mr-1">CheckOut</span>
           </Button>
