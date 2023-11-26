@@ -32,11 +32,6 @@ app.use('/api/', productRouter);
 app.use('/api/', userRouter);
 app.use('/api/', stripeRouter);
 
-// Connection successful
-db.on('connected', () => {
-  console.log('Connection to MongoDB Successfull!');
-});
-
 // Connection error
 db.on('error', (err) => {
   console.error(`MongoDB connection error: ${err}`);
