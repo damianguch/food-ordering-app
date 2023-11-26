@@ -7,10 +7,13 @@ export const PayButton = ({ cartItems }) => {
   const user = useSelector(selectUser);
   const handleCheckout = () => {
     axios
-      .post('/api/create-checkout-session', {
-        cartItems,
-        user: user._id
-      })
+      .post(
+        'https://food-ordering-b921316c67e7.herokuapp.com/api/create-checkout-session',
+        {
+          cartItems,
+          user: user._id
+        }
+      )
       .then((res) => {
         if (res.data.url) {
           window.location.href = res.data.url;
@@ -22,7 +25,7 @@ export const PayButton = ({ cartItems }) => {
   };
   return (
     <Button variant="dark" onClick={() => handleCheckout()}>
-      <span>Check Out</span>
+      <span>Pay Now</span>
     </Button>
   );
 };

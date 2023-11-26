@@ -3,12 +3,11 @@ import { cartProducts } from '../../stores/cart/cartSlice';
 import useTabSwitch from '../../hooks/useTabSwitch';
 import { Tabs } from '../../components/Tabs';
 import Button from '../../components/elements/Button';
-import { ReactComponent as ArrowRightSvg } from '../../assets/icons/arrow-right-long-svgrepo-com.svg';
 import AddressForm from '../../components/AddressForm';
 import { ProductsSummary } from '../../components/ProductsSummary';
 import { Link } from 'react-router-dom';
-// import { PayButton } from '../../components/PayButton';
-import { StripeWrapper } from '../../components/PaymentForm';
+import { PayButton } from '../../components/PayButton';
+//import { StripeWrapper } from '../../components/PaymentForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -43,16 +42,15 @@ const Cart = () => {
             onClick={() => handleTabSwitch('Delivery')}
           >
             <span className="mr-1">CheckOut</span>
-            <ArrowRightSvg />
           </Button>
         </div>
       </div>
-      <div className={`tabs ${currentTab !== 'Delivery' ? 'hidden' : ''}`}>
+      {/*<div className={`tabs ${currentTab !== 'Delivery' ? 'hidden' : ''}`}>
         <AddressForm onTabSwitch={handleTabSwitch} />
-      </div>
+      </div>*/}
       <div className={`tabs ${currentTab !== 'Payment' ? 'hidden' : ''}`}>
-        {/*<PayButton cartItems={cart} />*/}
-        <StripeWrapper />
+        <PayButton cartItems={cart} />
+        {/*<StripeWrapper />*/}
       </div>
     </div>
   );
