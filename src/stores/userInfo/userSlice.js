@@ -9,7 +9,8 @@ const userSlice = createSlice({
       _id: '',
       isAdmin: false
     },
-    error: null
+    error: null,
+    isAuthenticated: false
   },
   reducers: {
     setUser: (state, action) => {
