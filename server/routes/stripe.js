@@ -84,7 +84,8 @@ router.post('/create-checkout-session', async (req, res) => {
     customer: customer.id,
     line_items,
     mode: 'payment',
-    success_url: `${baseUrl}/api/order/success`,
+    success_url:
+      'https://food-ordering-b921316c67e7.herokuapp.com/api/order/success',
     cancel_url: `${baseUrl}/cart`
   });
 
