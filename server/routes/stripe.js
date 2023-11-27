@@ -84,7 +84,7 @@ router.post('/create-checkout-session', async (req, res) => {
     customer: customer.id,
     line_items,
     mode: 'payment',
-    success_url: `${baseUrl}/payment-success`,
+    success_url: `${baseUrl}/order/success`,
     cancel_url: `${baseUrl}/cart`
   });
 
@@ -230,6 +230,15 @@ router.post('/create-payment-intent', async (req, res) => {
       error: { message: e.message }
     });
   }
+});
+
+router.get('/order/success', async (req, res) => {
+  const session = await stripe.checkout.sessions.retrieve(req.query.session_id);
+  const customer = await stripe.customers.retrieve(session.customer);
+
+  res.send(
+    `<html><body><h1>Thanks for your order, ${customer.name}!</h1></body></html>`
+  );
 });
 
 module.exports = router;
