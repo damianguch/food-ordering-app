@@ -84,7 +84,7 @@ router.post('/create-checkout-session', async (req, res) => {
     customer: customer.id,
     line_items,
     mode: 'payment',
-    success_url: `${baseUrl}/payment-success`,
+    return_url: `${baseUrl}/payment-success`,
     cancel_url: `${baseUrl}/cart`
   });
 
